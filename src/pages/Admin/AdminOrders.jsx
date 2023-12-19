@@ -1,7 +1,7 @@
 
-import AdminNav from '../components/AdminNav'
+import AdminNav from '../../components/AdminNav'
 import Sidebar from './Sidebar'
-import OrdersNav from '../components/OrdersNav'
+import OrdersNav from '../../components/OrdersNav'
 
 const AdminOrders = () => {
   return (

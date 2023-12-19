@@ -1,36 +1,24 @@
-import React from 'react'
+/* eslint-disable no-unused-vars */
 import logo from '../assets/shoes-logo.png'
-import { FaCartShopping, FaCircleUser } from "react-icons/fa6";
+import { FaCartShopping } from "react-icons/fa6";
 import { NavLink } from 'react-router-dom'
 import { CiSearch } from "react-icons/ci";
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { Button } from '@chakra-ui/react'
 import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  VStack,
   Popover,
   PopoverTrigger,
   PopoverContent,
   PopoverHeader,
   PopoverBody,
-  PopoverFooter,
   PopoverArrow,
   PopoverCloseButton,
-  PopoverAnchor,
 } from '@chakra-ui/react'
 import LoginMenu from '../pages/Login';
 import { useDisclosure } from '@chakra-ui/react'
-import { Label } from 'recharts'
-const Navbar = () => {
-  let Navigate = useNavigate()
-  const { isOpen, onOpen, onClose } = useDisclosure()
 
+const Navbar = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <div style={{ display: "flex", justifyContent: "space-between", height: "80px" }} className='' >
       <div style={{ display: "flex", alignItems: "center", width: "25%" }}>
@@ -53,7 +41,8 @@ const Navbar = () => {
         <Popover>
           <PopoverTrigger>
             <Button>
-              <FaCartShopping size='xl' onHover={onOpen} /></Button>
+              <FaCartShopping size='xl' onHover={onOpen} />
+            </Button>
           </PopoverTrigger>
           <PopoverContent>
             <PopoverArrow />
@@ -62,7 +51,7 @@ const Navbar = () => {
             <PopoverBody>Are you sure you want to checkout?</PopoverBody>
           </PopoverContent>
         </Popover>
-        <LoginMenu/>
+        <LoginMenu />
       </div>
     </div>
   )

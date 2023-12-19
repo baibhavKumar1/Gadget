@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { FaGrip, FaShirt, FaBoxOpen, FaTags, FaGear, FaArrowRightFromBracket } from "react-icons/fa6";
 
 import { NavLink } from 'react-router-dom'

@@ -2,7 +2,7 @@ import  { useState, useEffect } from 'react'
 //import { IoMdPricetags } from "react-icons/io";
 import { FaSackDollar,FaBoxOpen ,FaTags} from "react-icons/fa6";
 //import { AreaChart } from 'recharts';
-import Sidebar from './Sidebar'
+import Sidebar from './Admin/Sidebar'
 import OrdersNav from '../components/OrdersNav';
 const Dashboard = () => {
     const [data, setData] = useState([]);

@@ -2,9 +2,9 @@ import {Route,Routes} from 'react-router-dom';
 
 import HomePage from './HomePage';
 import ProductPage from './ProductPage';
-import { AdminPage } from './AdminPage';
-import AdminProduct from './AdminProduct';
-import AdminOrders from './AdminOrders';
+import { AdminPage } from './Admin/AdminPage';
+import AdminProduct from './Admin/AdminProduct';
+import AdminOrders from './Admin/AdminOrders';
 import Login from './Login';
 const MainRoutes = () => {
   return (

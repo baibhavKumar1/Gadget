@@ -1,5 +1,5 @@
-import AdminNav from "../components/AdminNav"
-import Dashboard from "./Dashboard"
+import AdminNav from "../../components/AdminNav"
+import Dashboard from "../Dashboard"
 export const AdminPage=()=>{
  return(
  <>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Sidebar from './Sidebar'
-import AdminNav from '../components/AdminNav'
-import OrdersNav from '../components/OrdersNav';
+import AdminNav from '../../components/AdminNav'
+import OrdersNav from '../../components/OrdersNav';
 const AdminProduct = () => {
   const [data, setData] = useState([]);
   useEffect(() => {

@@ -1,5 +1,4 @@
 import { useState,useEffect } from "react";
-import React from 'react'
 import ProductCard from "./ProductCard";
 const Shoes = () => {
     const [data, setData] = useState([]);
