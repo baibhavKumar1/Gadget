@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import Navbar from '../components/Navbar'
 import { useEffect } from 'react';
 import { Getproduct } from '../redux/ProductReducer/action';
+import ProductCard from '../components/ProductCard';
 const Diti = () => {
     const dispatch = useDispatch();
     const token = useSelector((store) => store.AuthReducer.token)
@@ -14,10 +15,9 @@ const Diti = () => {
     return (
         <div>
             <Navbar />
-            {token}
             {data.map((item) => {
                 return (
-                    <div key={item._id}>{item._id}</div>
+                    <ProductCard key={item._id} item={item}/>
                 )
             })}
         </div>
