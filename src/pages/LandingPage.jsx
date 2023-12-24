@@ -28,7 +28,7 @@ const LandingPage = () => {
                 <div className='w-3/4 text-center flex flex-col justify-around p-5'>
                     <h1 className='text-9xl tracking-tighter'>START YOUR DAY</h1>
                     <p className='text-9xl text-rose-600 tracking-tighter'>ON TIME</p>
-                    <p className='text-xl tracking-tighter'>Welcome to our watch shopping haven, where punctuality meets style. Begin your day on time with our curated collection of elegant timepieces. Discover a world of watches that blend form and function seamlessly. Take the next step—click 'Explore Products' to explore our range.</p>
+                    <p className='text-xl tracking-tighter'>Welcome to our watch shopping haven, where punctuality meets style. Begin your day on time with our curated collection of elegant timepieces. Discover a world of watches that blend form and function seamlessly. Take the next step—click `&apos;`Explore Products`&apos;` to explore our range.</p>
                     <button className='border border-rose-500 rounded-lg p-2 w-max' style={{ display: "block" }}><NavLink to='/store'>Explore More...</NavLink></button>
                 </div>
                 <div className='w-1/4'>

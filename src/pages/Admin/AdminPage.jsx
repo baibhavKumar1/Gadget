@@ -1,4 +1,4 @@
-import AdminNav from "../../components/AdminNav"
+import AdminNav from "../../components/Admin/AdminNav"
 import Dashboard from "../Dashboard"
 export const AdminPage=()=>{
  return(

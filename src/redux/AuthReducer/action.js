@@ -3,10 +3,10 @@ import axios from 'axios';
 
 export const Register = (userData) => async (dispatch) => {
     dispatch({ type: REGISTER_REQUEST })
-    await axios.post('http://localhost:3000/user/register', userData)
+    await axios.post('https://gadgets-ohok.onrender.com/users/register', userData)
         .then((res) => {
             dispatch({ type: REGISTER_SUCCESS,payload:res })
-            console.log(res)
+            console.log(res.data.message)
         })
         .catch((err) => {
             dispatch({ type: REGISTER_ERROR })
@@ -17,9 +17,10 @@ export const Register = (userData) => async (dispatch) => {
 export const Login=(userData)=>async(dispatch)=>{
     dispatch({type:LOGIN_REQUEST})
     console.log(userData)
-    await axios.post('http://localhost:3000/user/login',userData)
+    await axios.post('https://gadgets-ohok.onrender.com/users/login',userData)
     .then((res)=>{
         dispatch({type:LOGIN_SUCCESS,payload:res})
+        localStorage.setItem('token',JSON.stringify(res.data.token))
         console.log(res)
     })
     .catch((err)=>{

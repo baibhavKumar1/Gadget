@@ -1,16 +1,18 @@
 import { useState } from 'react';
-import {Button, Input, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useToast} from '@chakra-ui/react';
-import { Register } from '../redux/AuthReducer/action';
- import { useDispatch } from 'react-redux';
+import {Button, Input, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton} from '@chakra-ui/react';
+import { Addproduct } from '../../redux/ProductReducer/action';
+ import { useDispatch,useSelector } from 'react-redux';
 
-export const SignupModal = ({ onOpens, LetClose }) => {
+export const AddProduct = ({ onOpens, LetClose }) => {
    const dispatch=useDispatch();
-
+  const token = JSON.parse(localStorage.getItem('token'))
   const [formData, setFormData] = useState({
     name: '',
-    age: '',
-    email: '',
-    pass: '',
+    price: '',
+    desc: 'The titan mens timeless watch boasts a refined black dial with minimalist markers,paired harmoniously with a sleek metal strap. Its versatile design seamlessly blends classic and modern, ensuring a sophisticated statement for any occasion while embodying enduring elegance and precision',
+    
+    quantity: '',
+    
   });
 
   const handleChange = (e) => {
@@ -22,13 +24,13 @@ export const SignupModal = ({ onOpens, LetClose }) => {
   };
 
   const handleSignup = () => {
-    console.log(formData)
-    dispatch(Register(formData))
+    console.log({...formData,token})
+    dispatch(Addproduct({...formData,token}))
     setFormData({
-      name: '',
-      age: '',
-      email: '',
-      pass: '',
+        name: '',
+        price: '',
+        desc: '',
+        quantity: '',
     })
     LetClose();
   };
@@ -39,7 +41,7 @@ export const SignupModal = ({ onOpens, LetClose }) => {
       <ModalContent fontFamily={"poppins"} borderRadius={"15px"}>
 
         <ModalHeader border="none" fontWeight={"bold"} color="#2b3954"
-          fontSize="25" className='text-center'>Sign Up</ModalHeader>
+          fontSize="25" className='text-center'>Add Product</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
           <Input
@@ -51,27 +53,36 @@ export const SignupModal = ({ onOpens, LetClose }) => {
             alignItems={"center"} fontSize={"16px"} className='justify-center'
           />
           <Input
-            name="age"
-            placeholder="Age"
-            value={formData.age}
+            name="price"
+            placeholder="price"
+            value={formData.price}
             onChange={handleChange}
             marginBottom={4}
             alignItems={"center"} fontSize={"16px"} className='justify-center'
           />
           <Input
-            name="email"
+            name="desc"
             type="email"
-            placeholder="Email"
-            value={formData.email}
+            placeholder="desc"
+            value={formData.desc}
             onChange={handleChange}
             marginBottom={4}
             alignItems={"center"} fontSize={"16px"} className='justify-center'
           />
           <Input
-            name="pass"
-            type="password"
-            placeholder="Password"
-            value={formData.pass}
+            name="quantity"
+            type="quantity"
+            placeholder="quantity"
+            value={formData.quantity}
+            onChange={handleChange}
+            marginBottom={4}
+            alignItems={"center"} fontSize={"16px"} className='justify-center'
+          />
+          <Input
+            name="image"
+            type="text"
+            placeholder="Add Image Link"
+            value={formData.image}
             onChange={handleChange}
             marginBottom={4}
             alignItems={"center"} fontSize={"16px"} className='justify-center'
@@ -91,7 +102,7 @@ export const SignupModal = ({ onOpens, LetClose }) => {
             onClick={handleSignup}
 
           >
-            SIGN UP
+            ADD PRODUCT
           </Button>
         </ModalFooter>
       </ModalContent>

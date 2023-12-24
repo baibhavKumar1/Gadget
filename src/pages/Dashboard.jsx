@@ -8,7 +8,7 @@ const Dashboard = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
         const url = '/db.json';
-        console.log(data)
+        //console.log(data)
         fetch(url)
             .then((response) => {
                 if (!response.ok) {

@@ -6,7 +6,8 @@ const init = {
     isAuth:false,
     token:"",
     name:"",
-    data:[]
+    data:[],
+    isAdmin:false
 }
 
 export const Reducer = (state=init,{type,payload})=>{
@@ -16,7 +17,7 @@ export const Reducer = (state=init,{type,payload})=>{
     case REGISTER_ERROR: return {...state,isLoading:false, isError:true}
 
     case LOGIN_REQUEST: return {...state, isLoading:true}
-    case LOGIN_SUCCESS : return {...state, isLoading:false, token:payload.data.token, isAuth:true,name: payload.data.name}
+    case LOGIN_SUCCESS : return {...state, isLoading:false, token:payload.data.token, isAuth:true,name: payload.data.name, isAdmin:payload.data.isAdmin}
     case LOGIN_ERROR : return {...state, isLoading:false, isError:true}
 
     default: return state

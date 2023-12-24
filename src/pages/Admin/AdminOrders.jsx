@@ -1,5 +1,5 @@
 
-import AdminNav from '../../components/AdminNav'
+import AdminNav from '../../components/Admin/AdminNav'
 import Sidebar from './Sidebar'
 import OrdersNav from '../../components/OrdersNav'
 

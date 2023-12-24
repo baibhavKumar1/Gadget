@@ -1,8 +1,14 @@
 import { useEffect, useState } from 'react'
 import Sidebar from './Sidebar'
-import AdminNav from '../../components/AdminNav'
+import AdminNav from '../../components/Admin/AdminNav'
+import { Text,Box,Button } from '@chakra-ui/react';
 import OrdersNav from '../../components/OrdersNav';
+import { AddProduct } from '../../components/Admin/Addproduct';
 const AdminProduct = () => {
+  const [SignOpen, setSignOpen] = useState(false);
+    function SignClose() {
+        setSignOpen(!SignOpen);
+    }
   const [data, setData] = useState([]);
   useEffect(() => {
     const url = '/db.json';
@@ -28,7 +34,17 @@ const AdminProduct = () => {
       <div className='flex'>
         <Sidebar />
         <div className='w-4/5 bg-green-200 mt-4 m-2 rounded-xl' style={{height:"84vh"}}>
-        <h1 className='text-4xl m-5'>Products</h1>
+        <div className='flex justify-between'>
+        <Text className='text-4xl m-5'>Products</Text>
+        <Box m={"10px 35%"} alignItems={"center"} className='border border-black justify-center' w={"100%"}>
+                                <Button color="#2b3954" fontSize="sm" variant={"link"} onClick={() => { setSignOpen(!SignOpen) }} textDecoration="none">
+                                    Add Product
+                                </Button>
+                                {SignOpen && <AddProduct
+                                    onOpens={SignOpen}
+                                    LetClose={SignClose} />}
+                            </Box>
+        </div>
           <table className='w-full text-center'>
             <thead>
               <tr className='bg-red-100 p-2'>
