@@ -16,8 +16,7 @@ const ProductCard = ({ item }) => {
       onMouseLeave={() => setIsHover(false)}
       style={{ position: 'relative' }}>
       <img src={item.image} alt='img' style={{ height: "300px", width: "300px", display: "block", margin: "auto" }} className='border' />
-      <p className='text-xl font-semibold font-mono'>{name}</p>
-      <p>{item.desc}</p>
+      <p className='text-xl font-semibold font-mono'>{item.name}</p>
       <p>{item.price}</p>
       <button className='border bg-rose-300 rounded-full p-2' onClick={() => { navigate('/product/2') }}>View Details</button>
       {isHover && (
@@ -33,7 +32,6 @@ const ProductCard = ({ item }) => {
             backgroundColor: '#f9f9f9',
           }}
         >
-          <p>{item.desc}</p>
           <button>Button 1</button>
           <button>Button 2</button>
         </div>

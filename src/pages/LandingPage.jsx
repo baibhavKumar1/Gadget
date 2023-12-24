@@ -4,24 +4,16 @@ import { FaArrowRight } from 'react-icons/fa'
 import { Text, Button, Image } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
 import { MdArrowBack, MdArrowForward } from 'react-icons/md';
+import { useSelector,useDispatch } from 'react-redux';
+import { Getproduct } from '../redux/ProductReducer/action';
 const LandingPage = () => {
-    const [data, setData] = useState([]);
+    const dispatch = useDispatch();
+    const token = useSelector((store) => store.AuthReducer.token)
+    const data = useSelector((store) => store.ProductReducer.data);
+    console.log(data)
     useEffect(() => {
-        const url = '/db.json'
-        fetch(url)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then((jsonData) => {
-                setData(jsonData.watch);
-            })
-            .catch((error) => {
-                console.error('Error fetching data:', error);
-            });
-    }, []);
+        dispatch(Getproduct(token))
+    }, [dispatch, token])
     return (
         <>
             <div className='bg-rose-200 h-max-full flex flex-row p-15 rounded-xl my-10 mx-auto outline  outline-rose-400' style={{ width: "95%" }}>
@@ -43,11 +35,11 @@ const LandingPage = () => {
                     </div>
                 </div>
                 <div className="flex flex-row justify-between">
-                    {data.filter(product => product.id < 5).map(item => (
-                        <div key={item.id} style={{ marginBottom: "30px", borderRadius: "20px" }} className="bg-white w-max">
-                            <ProductCard {...item} />
-                        </div>
-                    ))}
+                    {data.map((item) => {
+                return (
+                    <ProductCard key={item._id} item={item}/>
+                )
+            })}
                 </div>
             </div>
             <div>
